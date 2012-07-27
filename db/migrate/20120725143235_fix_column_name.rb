@@ -1,6 +1,6 @@
 class FixColumnName < ActiveRecord::Migration
   def up
-  	rename_column :Roqs, :next, :next_id
+  	rename_column :roqs, :next, :next_id
   end
 
   def down
