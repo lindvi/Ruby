@@ -14,11 +14,12 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		#if params[:id].to_i == 0
-		#	@project = Project.find_by_name(params[:id])
-		#else
-		@project = Project.find(params[:id])
-		#end
+		#@project = Project.find(params[:id])
+		if params[:id].to_i == 0
+			@project = Project.find_by_name(params[:id])
+		else
+			@project = Project.find(params[:id])
+		end
 		@rpqs = Rpq.where("project_id = ?", params[:id])
 		
 		respond_to do |format|

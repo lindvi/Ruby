@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120726184051) do
+ActiveRecord::Schema.define(:version => 20120727093902) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -61,8 +61,11 @@ ActiveRecord::Schema.define(:version => 20120726184051) do
   create_table "questions", :force => true do |t|
     t.string   "name"
     t.string   "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "answer_type", :default => ""
+    t.string   "audio_url",   :default => ""
+    t.string   "picture_url", :default => ""
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true

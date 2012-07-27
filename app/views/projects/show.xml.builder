@@ -6,6 +6,9 @@ xml.project do
 		xml.questions do
 			xml.name question.name
 			xml.content question.content
+			xml.audio_url question.audio_url
+			xml.picture_url question.picture_url
+			xml.answer_type question.answer_type
 			question.roqs.each do |roq|
 				xml.options do
 					xml.text roq.option.text
