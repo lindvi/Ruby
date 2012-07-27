@@ -1,0 +1,36 @@
+<% if @roqs.any? %>
+	<h2>List of options</h2>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Text</th>
+				<th>Next</th>
+				<th>Controllers</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @roqs.each do |roq| %>
+			<tr>
+				<td><%= roq.option.text %></td>
+				<td>
+					<% if !roq.next.nil? %>
+						<%= roq.next.name %>
+					<% else %>
+						Not set
+					<% end %>
+				</td>
+				<td>
+					<% if roq.next.nil? %>
+						<%= link_to "Add", edit_roq_path(roq), class:"btn btn-small btn-success" %>
+					<% else %>
+						<%= link_to "Edit", edit_roq_path(roq), class:"btn btn-small btn-warning" %>
+					<% end %>
+					<%= link_to "Destroy", roq_path(roq), method: :delete, data: { confirm: "You sure?" },  class:"btn btn-small btn-danger" %>
+				</td>
+			</tr>
+		<% end %>
+		</tbody>	
+	</table>
+<% else %>
+	<h3>There are no options bound to this question. Why not add some?</h3>
+<% end %>

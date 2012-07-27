@@ -1,0 +1,18 @@
+<h1>Question</h1>
+<%= link_to "Back", questions_path, class:"btn btn-secondary" %><br>
+<br>
+<section class="well">
+	<ul>
+		<li><b>Name</b><br><%= @question.name %></li><br>
+		<li><b>Content</b><br><%= @question.content %></li><br>
+		<li><b>Used in</b><br/>
+			<% @question.projects.each do |project| %>
+				<%= project.name %><br/>
+			<% end %>
+		</li>
+	</ul>
+</section>
+
+<%= render 'list' %>
+<br>
+<%= link_to "Add option", add_question_path, class: "btn btn-large btn-primary" %>

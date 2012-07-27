@@ -1,0 +1,73 @@
+<h1> Add question to <%= @project.name %></h1>
+
+<% if @rpq.errors.any? %>
+	<div class="row">
+	  <div id="error_explanation">
+	    <div class="alert alert-error">
+	      The form contains <%= pluralize(@rpq.errors.count, "error") %>.
+	    </div>
+	    <ul>
+	    <% @rpq.errors.full_messages.each do |msg| %>
+	      <li>* <%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	</div>
+<% end %>
+
+
+<%= link_to "Back", project_path, class:"btn btn-small btn-secondary" %><br><br>
+<div class="row">
+	<div class="span4">
+			<table class="table table-condensed">
+				<thead>
+					<th>
+						<tr>Questions in project</tr>
+					</th>
+				</thead>
+				<tbody>
+					<% @rpqs.each do |rpq| %>
+						<tr>
+							<td><%= rpq.question.name %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= form_for(@rpq) do |f| %>
+					<div class="field span3">
+					    <%= f.label :project_id %>
+				    	<%= f.number_field :project_id%>
+					</div>
+				<div class="field span3">
+				    <%= f.label :question_id %>
+			    	<%= f.number_field :question_id %>
+				</div>
+				<div class="actions span2">
+					<%= f.submit "Add", class:"btn btn-small btn-danger"%>
+				</div>
+			<% end %>
+	</div>
+	<div class="span8">
+		<h2>List of questions</h2>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Content</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @questions.each do |question| %>
+				<tr>
+					<td><%= question.id %></td>
+					<td><%= question.name %></td>
+					<td><%= question.content %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,19 @@
+<h1>Options</h1>
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>Text  </th>
+			<th>Controllers</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @options.each do |option| %>
+			<tr>
+				<td><%= option.text %></td>
+				<td><%= link_to 'Destroy', option, :confirm => 'Are you sure?', :method => :delete , class:"btn btn-small btn-danger"%></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<br />
+<%= link_to 'New option', new_option_path, class: "btn btn-large btn-primary"%>

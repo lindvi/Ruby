@@ -1,0 +1,72 @@
+<h1> Add question to <%= @question.name %></h1>
+
+<%= link_to "Back", question_path, class:"btn btn-small btn-secondary" %>
+<br>
+<% if @roq.errors.any? %>
+	<div class="row">
+	  <div id="error_explanation">
+	    <div class="alert alert-error">
+	      The form contains <%= pluralize(@roq.errors.count, "error") %>.
+	    </div>
+	    <ul>
+	    <% @roq.errors.full_messages.each do |msg| %>
+	      <li>* <%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	</div>
+<% end %>
+<br>
+
+<div class="row">
+	<div class="span4">
+			<table class="table table-condensed">
+				<thead>
+					<th>
+						<tr>Questions in project</tr>
+					</th>
+				</thead>
+				<tbody>
+					<% @roqs.each do |roq| %>
+						<tr>
+							<td><%= roq.option.text %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= form_for(@roq) do |f| %>
+					<div class="field span3">
+					    <%= f.label :question_id %>
+				    	<%= f.number_field :question_id%>
+					</div>
+				<div class="field span3">
+				    <%= f.label :option_id %>
+			    	<%= f.number_field :option_id %>
+				</div>
+				<div class="actions span2">
+					<%= f.submit "Add" , class:"btn btn-small btn-success" %>
+				</div>
+			<% end %>
+	</div>
+	<div class="span8">
+		<h2>List of options</h2>
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Text</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @options.each do |option| %>
+				<tr>
+					<td><%= option.id %></td>
+					<td><%= option.text %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+

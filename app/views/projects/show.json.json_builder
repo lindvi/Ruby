@@ -1,0 +1,12 @@
+project @project do |project|
+	name project.name
+	version project.version
+	question project.questions do |question|
+		name question.name
+		content question.content
+		option question.roqs do |roq|
+			text roq.option.text
+			next_question roq.next.name
+		end
+	end
+end

@@ -1,0 +1,2 @@
+module RpqsHelper
+end

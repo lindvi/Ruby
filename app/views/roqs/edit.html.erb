@@ -1,0 +1,71 @@
+<h1>Editing an option</h1>
+<h2><%= @roq.question.name %></h2>
+<%= link_to "Back", question_path(@roq.question.id), class:"btn btn-small btn-secondary" %> <br><br>
+<section class="well">
+<ul>
+	<li>
+		<b>Option to</b>
+		<br>
+		<%= @roq.question.name %>
+	</li>
+	<br>
+	<li>
+		<b>Text</b>
+		<br>
+		<%= @roq.option.text %>
+	</li>
+	<br>
+	<li>
+		<b>Leads to</b>
+		<br>
+		<% if !@roq.next.nil? %>
+			<%= @roq.next.name %>
+		<% else %>
+			Not set
+		<% end %>
+
+	</li>
+</ul>
+</section>
+<div class="row">
+	<div class="span6">
+		<%= form_for(@roq) do |f| %>
+
+			    <%= f.label :question_id %>
+			    <%= f.number_field :question_id %>
+
+			    <%= f.label :option_id %>
+			    <%= f.number_field :option_id %>
+
+			    
+			    <%= f.label :next_id %>
+			    <%= f.number_field :next_id %>
+
+			    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+		<% end %>
+	</div>
+	<div class="span6">
+		<h2>List of questions</h2>
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Content</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @questions.each do |question| %>
+				<tr>
+
+					<td><%= question.id %></td>
+					<td><%= question.name %></td>
+					<td>
+							<%= question.content ||= "Not set" %>
+					</td>
+				</tr>
+			<% end %>
+			</tbody>	
+		</table>
+	</div>
+</div>

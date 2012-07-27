@@ -1,0 +1,27 @@
+<% if @rpqs.any? %>
+	<h2>List of questions</h2>
+	<table class="table table-condensed">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Content</th>
+				<th>Controllers</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @rpqs.each do |rpq| %>
+			<tr>
+				<td><%= rpq.question.name %></td>
+				<td><%= rpq.question.content ||= "Not set" %></td>
+				<td>
+					<%= link_to "Show", question_path(rpq.question_id), class:"btn btn-small btn-info" %>
+					<%= link_to "Destroy", rpq_path(rpq), method: :delete, data: { confirm: "You sure?" },  class:"btn btn-small btn-danger" %>
+				</td>
+
+			</tr>
+		<% end %>
+		</tbody>	
+	</table>
+<% else %>
+		<h3>There are no questions bound to this project. Why not add some?</h3>
+<% end %>
