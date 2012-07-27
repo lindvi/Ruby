@@ -66,5 +66,5 @@ Tlc::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   #PERTY JSON! :D
-  config.action_view.pretty_print_json = false
+  config.action_view.pretty_print_json = true
 end
