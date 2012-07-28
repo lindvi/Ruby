@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	 
 	 before_filter :signed_in_user, only: [:show, :edit] 
-	 before_filter :correct_user, only: [:show, :edit], :unless => :admin_user
+	 before_filter :correct_user,:unless => :admin_user, only: [:show, :edit]
 	 before_filter :admin_user, only: [:index, :destroy]
 
 	 def index
