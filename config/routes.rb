@@ -20,6 +20,7 @@ Tlc::Application.routes.draw do
   resources :rpqs
   resources :roqs
   resources :questionnaire
+  resources :answers
   resources :questions do
     member do
       get 'add', 'done'

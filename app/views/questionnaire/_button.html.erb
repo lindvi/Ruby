@@ -1,0 +1,7 @@
+<%= form_for(@answer.update_attributes(answer_id: "1") ,remote: true) do |f| %>
+  <div><%= f.hidden_field :question_id %></div>
+  <div><%= f.hidden_field :user_id %></div>
+  <div><%= f.hidden_field :remember_token %></div>
+  <div><%= f.hidden_field :answer_id %></div>
+  <%= f.submit roq., class: "btn btn-large btn-primary" %>
+<% end %>

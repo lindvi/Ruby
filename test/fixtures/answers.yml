@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  question_id: 1
+  answer: 1
+
+two:
+  user_id: 1
+  question_id: 1
+  answer: 1
+# == Schema Information
+#
+# Table name: answers
+#
+#  id             :integer         not null, primary key
+#  user_id        :integer
+#  question_id    :integer
+#  answer         :
+#  created_at     :datetime        not null
+#  updated_at     :datetime        not null
+#  remember_token :string(255)
+#
+
