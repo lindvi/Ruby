@@ -12,9 +12,10 @@ end
 #  id             :integer         not null, primary key
 #  user_id        :integer
 #  question_id    :integer
-#  answer         :
+#  answer_id      :integer
+#  remember_token :string(255)
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
-#  remember_token :string(255)
+#  answer         :string(255)
 #
 

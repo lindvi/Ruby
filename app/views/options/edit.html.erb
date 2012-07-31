@@ -1,0 +1,14 @@
+<div class="page-header">
+	<h1 class="hleft">Edit option</h1>
+</div>
+<%= link_to "Back", option_path, class:"btn btn-small btn-secondary" %><br><br>
+<section class="well">
+	<ul>
+		<li><b>Text:</b><br> <%= @option.text %></li>
+	</ul>
+</section>
+<%= form_for(@option) do |f| %>
+	    <%= f.label :text %>
+	    <%= f.text_field :text %>
+	    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+<% end %>

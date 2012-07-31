@@ -34,19 +34,6 @@
 					<% end %>
 				</tbody>
 			</table>
-			<%= form_for(@roq) do |f| %>
-					<div class="field span3">
-					    <%= f.label :question_id %>
-				    	<%= f.number_field :question_id%>
-					</div>
-				<div class="field span3">
-				    <%= f.label :option_id %>
-			    	<%= f.number_field :option_id %>
-				</div>
-				<div class="actions span2">
-					<%= f.submit "Add" , class:"btn btn-small btn-success" %>
-				</div>
-			<% end %>
 	</div>
 	<div class="span8">
 		<h2>List of options</h2>
@@ -63,6 +50,9 @@
 				<tr>
 					<td><%= option.id %></td>
 					<td><%= option.text %></td>
+					<td>
+						<%= add_to_roq(@question.id, option.id) %>
+					</td>	
 				</tr>
 				<% end %>
 			</tbody>

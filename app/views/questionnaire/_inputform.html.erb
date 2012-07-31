@@ -1,0 +1,35 @@
+<% @question.roqs.each do |roq| %>
+		<% if current_user.nil? %>
+			<% if cookies[:reg].nil? %>
+				<% cookies[:reg] = { :value => (0...8).map{65.+(rand(25)).chr}.join, :expires => 3.hours.from_now} %>
+			<% end %>
+			<% if @question.answer_type == "button" %>
+				<%= new_button_to_answer(@question.id, roq.next_id, cookies[:reg], roq.option.text) %>
+			<% else %>
+				<% @answer = Answer.new(question_id: @question.id, answer_id: roq.next_id, remember_token: cookies[:reg])%>
+				<%= form_for(@answer) do |f|%>
+					<%=	f.hidden_field :question_id %>
+					<%=	f.hidden_field :answer_id %>
+					<%=	f.hidden_field :remember_token %>
+		  			<%= f.label :answer, roq.option.text %>
+		  			<%= f.text_field :answer, class:"span4"%>
+		  			<%= f.submit "Svara", class: "btn btn-large btn-primary"%>
+				<%end%>
+			<% end %>
+		<% else %>
+			<% if @question.answer_type == "button" %>
+				<%= button_to_answer(current_user.id, @question.id, roq.next_id, current_user.remember_token, roq.option.text) %>
+			<% else %>
+				<% @answer = Answer.new(user_id: current_user.id, question_id: @question.id, answer_id: roq.next_id, remember_token: current_user.remember_token)%>
+				<%= form_for(@answer) do |f|%>
+					<%= f.hidden_field :user_id %>
+					<%=	f.hidden_field :question_id %>
+					<%=	f.hidden_field :answer_id %>
+					<%=	f.hidden_field :remember_token %>
+		  			<%= f.label :answer, roq.option.text %>
+		  			<%= f.text_field :answer, class:"span4"%>
+		  			<%= f.submit "Svara", class: "btn btn-large btn-primary"%>
+				<%end%>
+			<% end %>
+		<% end %>
+	<% end %>

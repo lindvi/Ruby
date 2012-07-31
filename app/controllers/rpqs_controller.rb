@@ -10,7 +10,7 @@ class RpqsController < ApplicationController
 	end
 
 	def create
-		@rpq = Rpq.new(params[:rpq])
+		@rpq = Rpq.new(project_id: params[:project_id], question_id: params[:question_id])
 		if @rpq.save
 			flash[:success] = "Successfully added a question to the project"
 			redirect_to add_project_path(@rpq.project_id)

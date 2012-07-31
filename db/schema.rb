@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730075105) do
+ActiveRecord::Schema.define(:version => 20120731143438) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -37,8 +37,15 @@ ActiveRecord::Schema.define(:version => 20120730075105) do
   add_index "Users", ["remember_token"], :name => "index_users_on_remember_token"
   add_index "Users", ["username"], :name => "index_users_on_username", :unique => true
 
-# Could not dump table "answers" because of following StandardError
-#   Unknown type 'answer_id' for column 'answer'
+  create_table "answers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.string   "remember_token"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "answer"
+  end
 
   create_table "options", :force => true do |t|
     t.string   "text"
@@ -56,9 +63,10 @@ ActiveRecord::Schema.define(:version => 20120730075105) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "version"
-    t.boolean  "active",     :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "active",         :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "start_question"
   end
 
   create_table "questions", :force => true do |t|

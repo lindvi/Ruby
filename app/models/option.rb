@@ -1,8 +1,8 @@
 class Option < ActiveRecord::Base
   attr_accessible :text
 
-  has_many :rqps
-  has_many :reverse_roqs, foreign_key: "question_id",
+  has_many :rqps, foreign_key: "option_id", class_name: "Roq" , dependent: :destroy
+  has_many :reverse_roqs, foreign_key: "option_id",
                                    class_name:  "Roq"
   has_many :questions, through: :reverse_roqs
 

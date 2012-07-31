@@ -2,10 +2,9 @@
 	<h1 class="hleft">Frågor</h1>
 </div>
 <div class="well center">
+
 	<p><%= @question.content %></p>
 </div>
 <div class="row center">
-	<% @question.roqs.each do |roq| %>
-		<%= link_to roq.option.text, questionnaire_path(roq.next), class:"btn btn-large btn-primary" %>
-	<% end %>
+	<%= render 'inputform' %>
 </div>

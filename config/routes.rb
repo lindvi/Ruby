@@ -4,7 +4,7 @@ Tlc::Application.routes.draw do
   root to: "static_pages#home"
   match '/about',   to: 'static_pages#about'
   match '/contact',  to: 'static_pages#contact'
-  match '/research', to: 'static_pages#research' 
+  match '/research', to: 'static_pages#research'
 
   # User handling
   resources :users  
@@ -16,11 +16,12 @@ Tlc::Application.routes.draw do
 
 
   # TeleCoach handling
-  resources :options  
+  resources :options
   resources :rpqs
   resources :roqs
   resources :questionnaire
   resources :answers
+  resources :questions
   resources :questions do
     member do
       get 'add', 'done'

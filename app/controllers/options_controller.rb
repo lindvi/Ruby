@@ -14,6 +14,22 @@ class OptionsController < ApplicationController
 		@option = Option.new
 	end
 
+	def edit
+		@option = Option.find(params[:id])
+	end 
+
+	def update
+		@option = Option.find(params[:id])
+		if @option.update_attributes(params[:option])
+			flash[:success] = "Option updated Successfully"
+			redirect_to option_path
+		else
+			flash[:failure] = "Failed to update option"
+			redirect_to option_path
+		end
+
+	end
+
 	def create
 		@option = Option.new(params[:option])
 		if @option.save

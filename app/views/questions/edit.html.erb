@@ -1,0 +1,36 @@
+<div class="page-header">
+	<h1 class="hleft">Edit question</h1>
+</div>
+<h2 class="hleft"><%= @question.name %></h2><br><br>
+<%= link_to "Back", question_path, class:"btn btn-small btn-secondary" %><br><br>
+<section class="well">
+	<ul>
+		<li><b>Id:</b> <%= @question.id %></li>
+		<li><b>Name:</b> <%= @question.name %></li>
+		<li><b>Content:</b> <%= @question.content %></li>
+		<li><b>Answer type:</b> <%= @question.answer_type %></li>
+		<li><b>Audio:</b> <%= @question.audio_url ||= "Not set" %></li>
+		<li><b>Picture:</b> <%= @question.picture_url ||= "Not set" %></li>
+	</ul>
+</section>
+<%= form_for(@question) do |f| %>
+		<%= f.label :id %>
+		<%= f.number_field :id %>
+
+	    <%= f.label :name %>
+	    <%= f.text_field :name %>
+
+	    <%= f.label :content %>
+      	<%= f.text_area :content %>
+	
+		<%= f.label :answer_type %><br />
+		<%= f.text_field :answer_type %>
+	
+	    <%= f.label :audio_url %>
+	    <%= f.text_field :audio_url %>
+
+	    <%= f.label :picture_url %>
+	    <%= f.text_field :picture_url %>
+
+	    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+<% end %>

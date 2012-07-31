@@ -5,7 +5,19 @@
 	</div>
 	<div class="field">
 	    <%= f.label :content %><br />
-	    <%= f.text_field :content %>
+	    <%= f.text_area :content %>
+	</div>
+	<div class="field">
+		<%= f.label :answer_type %><br />
+		<%= select(f, :answer_type, %w[button textinput]) %>
+	</div>
+	<div class="field">
+	    <%= f.label :audio_url %><br />
+	    <%= f.text_field :audio_url %>
+	</div>
+	<div class="field">
+	    <%= f.label :picture_url %><br />
+	    <%= f.text_field :picture_url %>
 	</div>
 	<div class="actions">
 		<%= f.submit %>

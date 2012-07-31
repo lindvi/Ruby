@@ -33,19 +33,6 @@
 					<% end %>
 				</tbody>
 			</table>
-			<%= form_for(@rpq) do |f| %>
-					<div class="field span3">
-					    <%= f.label :project_id %>
-				    	<%= f.number_field :project_id%>
-					</div>
-				<div class="field span3">
-				    <%= f.label :question_id %>
-			    	<%= f.number_field :question_id %>
-				</div>
-				<div class="actions span2">
-					<%= f.submit "Add", class:"btn btn-small btn-danger"%>
-				</div>
-			<% end %>
 	</div>
 	<div class="span8">
 		<h2>List of questions</h2>
@@ -64,6 +51,7 @@
 					<td><%= question.id %></td>
 					<td><%= question.name %></td>
 					<td><%= question.content %></td>
+					<td><%= add_to_rpq(@project.id, question.id) %></td>
 				</tr>
 				<% end %>
 			</tbody>

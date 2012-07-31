@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
 	def index
 		@projects = Project.all
+		@questions = Question.all
 	end
 
 	def edit

@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 	def index
 		@questions = Question.all
 	end
+
 	def show
 		@question = Question.find(params[:id])
 		@roqs = Roq.where("question_id = ?", params[:id])
@@ -14,11 +15,15 @@ class QuestionsController < ApplicationController
 		@question = Question.new
 	end
 
+	def edit
+		@question = Question.find(params[:id])
+	end
+
 	def add
 		@question = Question.find(params[:id])
 		@options = Option.all
 		@roqs = Roq.where("question_id = ?", params[:id])
-		@roq = Roq.new(question_id: params[:id], option_id: nil)
+		@roq = Roq.new
 	end
 
 	def done
@@ -31,6 +36,16 @@ class QuestionsController < ApplicationController
 		end
 	end
 
+	def update
+		@question = Question.find(params[:id])
+		if @question.update_attributes(params[:question])
+			flash[:success] = "Question updated Successfully"
+			redirect_to question_path
+		else
+			flash[:failure] = "Failed to update question"
+			redirect_to question_path
+		end
+	end
 
 	def create
 		@question = Question.new(params[:question])

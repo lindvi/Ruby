@@ -1,10 +1,10 @@
 class Question < ActiveRecord::Base
 
-  attr_accessible :content, :name
+  attr_accessible :content, :name, :answer_type, :picture_url, :audio_url
 
   validates :name, uniqueness: true
 
-  has_many :rqps
+  has_many :rqps, foreign_key: "question_id", class_name: "Rpq", dependent: :destroy
   has_many :reverse_rpqs, foreign_key: "question_id",
                                    class_name:  "Rpq"
   has_many :projects, through: :reverse_rpqs

@@ -1,11 +1,10 @@
 module ProjectsHelper
-	def active?(project)
-		if Project.find(project.id).active
-			link_to "Disable", '#', class: "btn"
-		else
-			link_to "Enable", '#', class: "btn"
-		end
-	end
+
+	def add_to_rpq(project_id, question_id)
+  		if Rpq.find_by_project_id_and_question_id(project_id, question_id).nil?
+  			link_to "Add", rpqs_path(project_id: project_id, question_id: question_id), :method => :post, class:"btn btn-small btn-success"
+  		end
+  	end
 end
 
 

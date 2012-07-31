@@ -27,7 +27,7 @@ class RoqsController < ApplicationController
 	end
 
 	def create
-		@roq = Roq.new(params[:roq])
+		@roq = Roq.new(question_id: params[:question_id], option_id: params[:option_id])
 		if @roq.save
 			flash[:success] = "Successfully added an option to the question"
 			redirect_to add_question_path(@roq.question_id)
