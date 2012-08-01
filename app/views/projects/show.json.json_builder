@@ -2,6 +2,7 @@ project @project do |project|
 	name project.name
 	version project.version
 	question project.questions do |question|
+		id question.id
 		name question.name
 		content question.content
 		audio question.audio_url
@@ -9,6 +10,7 @@ project @project do |project|
 		answer_type question.answer_type
 		option question.roqs do |roq|
 			text roq.option.text
+			next_question_id roq.next_id
 			next_question roq.next.name
 		end
 	end

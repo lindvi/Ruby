@@ -5,6 +5,8 @@ Tlc::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact',  to: 'static_pages#contact'
   match '/research', to: 'static_pages#research'
+  match '/psykiatri', to: 'static_pages#psykiatri_info'
+  match '/beroendevard', to: 'static_pages#beroende_info'
 
   # User handling
   resources :users  
