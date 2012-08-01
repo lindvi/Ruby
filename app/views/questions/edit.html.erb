@@ -11,6 +11,7 @@
 		<li><b>Answer type:</b> <%= @question.answer_type %></li>
 		<li><b>Audio:</b> <%= @question.audio_url ||= "Not set" %></li>
 		<li><b>Picture:</b> <%= @question.picture_url ||= "Not set" %></li>
+		<li><b>Reminder</b> <%= @question.set_reminder %></li>
 	</ul>
 </section>
 <%= form_for(@question) do |f| %>
@@ -31,6 +32,13 @@
 
 	    <%= f.label :picture_url %>
 	    <%= f.text_field :picture_url %>
+
+		<%= f.label "Set reminder" %>
+      	<%= f.radio_button :set_reminder, :true %>
+      	<br><br>
+      	<%= f.label "No reminder" %>
+      	<%= f.radio_button :set_reminder, :false %>
+      	<br><br>
 
 	    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
 <% end %>

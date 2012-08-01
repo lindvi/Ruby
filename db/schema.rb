@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731143438) do
+ActiveRecord::Schema.define(:version => 20120801091705) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120731143438) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "next_id"
+    t.integer  "value"
   end
 
   create_table "Users", :force => true do |t|
@@ -63,20 +64,22 @@ ActiveRecord::Schema.define(:version => 20120731143438) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "version"
-    t.boolean  "active",         :default => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.boolean  "active",              :default => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "start_question"
+    t.string   "start_question_name"
   end
 
   create_table "questions", :force => true do |t|
     t.string   "name"
     t.string   "content"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-    t.string   "answer_type", :default => ""
-    t.string   "audio_url",   :default => ""
-    t.string   "picture_url", :default => ""
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "answer_type",  :default => ""
+    t.string   "audio_url",    :default => ""
+    t.string   "picture_url",  :default => ""
+    t.boolean  "set_reminder", :default => false
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true

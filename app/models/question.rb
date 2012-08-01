@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
 
-  attr_accessible :content, :name, :answer_type, :picture_url, :audio_url
+  attr_accessible :content, :name, :answer_type, :picture_url, :audio_url, :set_reminder
 
   validates :name, uniqueness: true
 

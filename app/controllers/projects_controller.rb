@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find(params[:id])
+		@project.start_question_name = Question.find(params[:project][:start_question]).name
 		if @project.update_attributes(params[:project])
 			flash[:success] = "Project updated successfully"
 			redirect_to project_path

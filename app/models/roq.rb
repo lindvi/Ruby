@@ -1,5 +1,5 @@
 class Roq < ActiveRecord::Base
-  attr_accessible :roq_id, :option_id, :question_id, :next_id
+  attr_accessible :roq_id, :option_id, :question_id, :next_id, :value
   belongs_to :question
   belongs_to :option
   belongs_to :next, class_name: "Question"

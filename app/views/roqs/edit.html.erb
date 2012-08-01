@@ -14,6 +14,11 @@
 		<br>
 		<%= @roq.option.text %>
 	</li>
+	<li>
+		<b>Value</b>
+		<br>
+		<%= @roq.value %>
+	</li>
 	<br>
 	<li>
 		<b>Leads to</b>
@@ -37,6 +42,8 @@
 			    <%= f.label :option_id %>
 			    <%= f.number_field :option_id %>
 
+			    <%= f.label :value %>
+			    <%= f.number_field :value %>
 			    
 			    <%= f.label :next_id %>
 			    <%= f.number_field :next_id %>

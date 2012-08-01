@@ -1,6 +1,7 @@
 project @project do |project|
 	name project.name
 	version project.version
+	start project.start_question_name
 	question project.questions do |question|
 		id question.id
 		name question.name
@@ -8,10 +9,11 @@ project @project do |project|
 		audio question.audio_url
 		picture question.picture_url
 		answer_type question.answer_type
+		set_reminder question.set_reminder
 		option question.roqs do |roq|
 			text roq.option.text
-			next_question_id roq.next_id
 			next_question roq.next.name
+			value roq.value
 		end
 	end
 end

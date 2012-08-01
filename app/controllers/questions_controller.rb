@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.find(params[:id])
-		@roqs = Roq.where("question_id = ?", params[:id])
+		@roqs = Roq.where("question_id = ?", params[:id]).order("value")
 	end
 
 	def new

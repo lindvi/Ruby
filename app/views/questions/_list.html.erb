@@ -5,6 +5,7 @@
 			<tr>
 				<th>Text</th>
 				<th>Next</th>
+				<th>Value</th>
 				<th>Controllers</th>
 			</tr>
 		</thead>
@@ -19,6 +20,7 @@
 						Not set
 					<% end %>
 				</td>
+				<td><%= roq.value %></td>
 				<td>
 					<% if roq.next.nil? %>
 						<%= link_to "Add", edit_roq_path(roq), class:"btn btn-small btn-success" %>

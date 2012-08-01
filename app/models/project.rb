@@ -1,8 +1,7 @@
 class Project < ActiveRecord::Base
-  attr_accessible :active, :name, :version, :start_question
+  attr_accessible :active, :name, :version, :start_question, :start_question_name
   has_many :rpqs
   has_many :questions, :through => :rpqs
-
 end
 # == Schema Information
 #

@@ -21,6 +21,7 @@
 			<span class="label label-important">Invalid audio url</span>
 		<% end %>
 		<br><br>
+		<li><b>Reminder</b><br></li><%= @question.set_reminder ||= "Not set"%></li><br><br>
 		<li><b>Used in</b><br/>
 			<% @question.projects.each do |project| %>
 				<%= project.name %><br/>
