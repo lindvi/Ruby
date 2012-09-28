@@ -14,5 +14,6 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  next_id     :integer
+#  value       :integer
 #
 

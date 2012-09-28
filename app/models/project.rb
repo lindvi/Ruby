@@ -7,12 +7,13 @@ end
 #
 # Table name: projects
 #
-#  id             :integer         not null, primary key
-#  name           :string(255)
-#  version        :string(255)
-#  active         :boolean         default(FALSE)
-#  created_at     :datetime        not null
-#  updated_at     :datetime        not null
-#  start_question :integer
+#  id                  :integer         not null, primary key
+#  name                :string(255)
+#  version             :string(255)
+#  active              :boolean         default(FALSE)
+#  created_at          :datetime        not null
+#  updated_at          :datetime        not null
+#  start_question      :integer
+#  start_question_name :string(255)
 #
 

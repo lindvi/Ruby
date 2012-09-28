@@ -4,7 +4,7 @@
 				<% cookies[:reg] = { :value => (0...8).map{65.+(rand(25)).chr}.join, :expires => 3.hours.from_now} %>
 			<% end %>
 			<% if @question.answer_type == "button" %>
-				<%= new_button_to_answer(@question.id, roq.next_id, cookies[:reg], roq.option.text) %>
+				<%= new_button_to_answer(@question.id, roq.next_id, cookies[:reg], roq.option.text, roq.value) %>
 			<% else %>
 				<% @answer = Answer.new(question_id: @question.id, answer_id: roq.next_id, remember_token: cookies[:reg])%>
 				<%= form_for(@answer) do |f|%>
@@ -18,7 +18,7 @@
 			<% end %>
 		<% else %>
 			<% if @question.answer_type == "button" %>
-				<%= button_to_answer(current_user.id, @question.id, roq.next_id, current_user.remember_token, roq.option.text) %>
+				<%= button_to_answer(current_user.id, @question.id, roq.next_id, current_user.remember_token, roq.option.text, roq.value) %>
 			<% else %>
 				<% @answer = Answer.new(user_id: current_user.id, question_id: @question.id, answer_id: roq.next_id, remember_token: current_user.remember_token)%>
 				<%= form_for(@answer) do |f|%>
