@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928074306) do
+ActiveRecord::Schema.define(:version => 20120928080414) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -73,13 +73,13 @@ ActiveRecord::Schema.define(:version => 20120928074306) do
 
   create_table "questions", :force => true do |t|
     t.string   "name"
-    t.text     "content",      :limit => 255
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-    t.string   "answer_type",                 :default => ""
-    t.string   "audio_url",                   :default => ""
-    t.string   "picture_url",                 :default => ""
-    t.boolean  "set_reminder",                :default => false
+    t.text     "content"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "answer_type",  :default => ""
+    t.string   "audio_url",    :default => ""
+    t.string   "picture_url",  :default => ""
+    t.boolean  "set_reminder", :default => false
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true
