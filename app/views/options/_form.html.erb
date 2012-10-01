@@ -10,7 +10,7 @@
 	      </ul>
 	    </div>
 	<% end %>
-
+	<%= hidden_field_tag :qid , params[:question_id] %>
 	<div class="field">
 	    <%= f.label :text %><br />
 	    <%= f.text_field :text %>

@@ -33,8 +33,12 @@ class OptionsController < ApplicationController
 	def create
 		@option = Option.new(params[:option])
 		if @option.save
-			flash[:success] = "New option created"
-			redirect_to options_path
+			@roq = Roq.new
+			@roq.option_id = @option.id
+			@roq.question_id  = params[:qid]
+			@roq.save
+			flash[:success] = "Option added"
+			redirect_to question_path(params[:qid])
 		else
 			render 'new'
 		end

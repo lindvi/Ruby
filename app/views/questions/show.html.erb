@@ -32,4 +32,4 @@
 
 <%= render 'list' %>
 <br>
-<%= link_to "Add option", add_question_path, class: "btn btn-large btn-primary" %>
+<%= link_to "Add option", new_option_path(question_id: @question.id), class: "btn btn-large btn-primary" %>
