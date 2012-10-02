@@ -3,6 +3,7 @@
 	    <%= f.label :name %><br />
 	    <%= f.text_field :name %>
 	</div>
+	<%= hidden_field_tag :pid , params[:project_id] %>
 	<div class="field">
 	    <%= f.label :content %><br />
 	    <%= f.text_area :content %>

@@ -50,8 +50,12 @@ class QuestionsController < ApplicationController
 	def create
 		@question = Question.new(params[:question])
 		if @question.save
+			@rpq = Rpq.new
+			@rpq.question_id = @question.id
+			@rpq.project_id = params[:pid]
+			@rpq.save
 			flash[:success] = "New question added"
-			redirect_to questions_path
+			redirect_to project_path(params[:pid])
 		else
 			render 'new'
 		end
