@@ -46,7 +46,9 @@
 			    <%= f.number_field :value %>
 			    
 			    <%= f.label :next_id %>
-			    <%= f.number_field :next_id %>
+			    <%= f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false %>
+ 
+			    <!-- <%= f.number_field :next_id %> -->
 
 			    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
 		<% end %>

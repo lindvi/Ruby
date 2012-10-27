@@ -24,7 +24,7 @@
 		<li><b>Reminder</b><br></li><%= @question.set_reminder ||= "Not set"%></li><br><br>
 		<li><b>Used in</b><br/>
 			<% @question.projects.each do |project| %>
-				<%= project.name %><br/>
+				<%= link_to project.name, project %><br/>
 			<% end %>
 		</li>
 	</ul>
