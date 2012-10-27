@@ -10,6 +10,7 @@ project @project do |project|
 		picture question.picture_url
 		answer_type question.answer_type
 		set_reminder question.set_reminder
+		next_model question.next_model
 		option question.roqs do |roq|
 			text roq.option.text
 			next_question roq.next.name

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027143752) do
+ActiveRecord::Schema.define(:version => 20121027150704) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -72,14 +72,14 @@ ActiveRecord::Schema.define(:version => 20121027143752) do
   end
 
   create_table "questions", :force => true do |t|
-    t.string   "name"
+    t.text     "name",         :limit => 255
     t.text     "content"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.string   "answer_type",  :default => ""
-    t.string   "audio_url",    :default => ""
-    t.string   "picture_url",  :default => ""
-    t.boolean  "set_reminder", :default => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.string   "answer_type",                 :default => ""
+    t.string   "audio_url",                   :default => ""
+    t.string   "picture_url",                 :default => ""
+    t.boolean  "set_reminder",                :default => false
     t.text     "next_model"
   end
 
