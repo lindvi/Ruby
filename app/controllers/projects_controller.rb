@@ -25,10 +25,8 @@ class ProjectsController < ApplicationController
 		
 		respond_to do |format|
 	    	format.html # show.html.erb
-	    	if @project.active
-		    	format.xml # show.xml.xml_builder
-		    	format.json # show.json.json_builder
-	    	end
+	    	format.xml # show.xml.xml_builder
+	    	format.json # show.json.json_builder
 	    end
 	end
 
