@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928091350) do
+ActiveRecord::Schema.define(:version => 20121027143752) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20120928091350) do
     t.string   "audio_url",    :default => ""
     t.string   "picture_url",  :default => ""
     t.boolean  "set_reminder", :default => false
+    t.text     "next_model"
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true

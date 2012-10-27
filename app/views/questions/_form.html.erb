@@ -20,6 +20,18 @@
 	    <%= f.label :picture_url %><br />
 	    <%= f.text_field :picture_url %>
 	</div>
+	<div class="field">
+		<%= f.label "Set reminder" %>
+      	<%= f.radio_button :set_reminder, :true %>
+      	<br><br>
+      	<%= f.label "No reminder" %>
+      	<%= f.radio_button :set_reminder, :false %>
+      	<br><br>
+  	</div>
+	<div class="field">
+	    <%= f.label :next_model %><br />
+	    <%= f.text_field :next_model %>
+	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>

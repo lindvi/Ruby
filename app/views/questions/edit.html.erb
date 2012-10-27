@@ -39,6 +39,9 @@
       	<%= f.label "No reminder" %>
       	<%= f.radio_button :set_reminder, :false %>
       	<br><br>
-
+	
+	    <%= f.label :next_model %><br />
+	    <%= f.text_field :next_model %>
+	
 	    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
 <% end %>
