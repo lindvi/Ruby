@@ -93,7 +93,7 @@ class ProjectsController < ApplicationController
 
 		def has_auth
 			if params[:key] != nil
-				(params[:key] == "aksjhd98dy32qoiu2gfwejlfgsadlkjbc2q398fgwfjhsadfjsadgcw3q98fhawepifugwefcuyweg")						
+				(params[:key] == "aksjhd98dy32qoiu2gfwejlfgsadlkjbc2q398fgwfjhsadfjsadgcw3q98fhawepifugwefcuyweg" || params[:key] == "LPDDKMICRKDMKFTU")						
 			end
 		end
 
