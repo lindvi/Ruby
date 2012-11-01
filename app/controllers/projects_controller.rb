@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 	#before_filter :signed_in_user
 	#before_filter :admin_user
-	before_filter :signed_in_user, except: [:show] :unless => :has_auth
+	before_filter :signed_in_user, except: [:show], :unless => :has_auth
 	before_filter :admin_user, except: [:show], :unless => :has_auth
 	before_filter :has_auth, only: [:show]
 
