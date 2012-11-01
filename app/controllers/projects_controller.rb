@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
 	#before_filter :signed_in_user
 	#before_filter :admin_user
-	before_filter :signed_in_user, :unless => :has_auth
-	before_filter :admin_user, :unless => :has_auth
+	before_filter :signed_in_user, except: [:show] :unless => :has_auth
+	before_filter :admin_user, except: [:show], :unless => :has_auth
 	before_filter :has_auth, only: [:show]
 
 	def index
@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
 	private
 
 		def has_auth
-			if params[:key] != nil &&(params[:key] == "LPDDKMICRKDMKFTU")
+			if params[:key] != nil && params[:key] == "LPDDKMICRKDMKFTU"
 				return true
 			else
 				return false				
