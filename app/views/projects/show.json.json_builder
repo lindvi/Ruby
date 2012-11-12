@@ -2,6 +2,9 @@ project @project do |project|
 	name project.name
 	version project.version
 	start project.start_question_name
+	schedule_next_model  project.schedule_next_model
+	schedule_next_model_name project.schedule_next_model_name
+	schedule_next_model_offset project.schedule_next_model_offset
 	question project.questions do |question|
 		id question.id
 		name question.name

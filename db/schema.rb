@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027150704) do
+ActiveRecord::Schema.define(:version => 20121112144824) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -64,11 +64,14 @@ ActiveRecord::Schema.define(:version => 20121027150704) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "version"
-    t.boolean  "active",              :default => false
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.boolean  "active",                     :default => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.integer  "start_question"
     t.string   "start_question_name"
+    t.boolean  "schedule_next_model"
+    t.string   "schedule_next_model_name"
+    t.integer  "schedule_next_model_offset"
   end
 
   create_table "questions", :force => true do |t|

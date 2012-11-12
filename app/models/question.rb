@@ -18,7 +18,7 @@ end
 # Table name: questions
 #
 #  id           :integer         not null, primary key
-#  name         :string(255)
+#  name         :text(255)
 #  content      :text
 #  created_at   :datetime        not null
 #  updated_at   :datetime        not null
