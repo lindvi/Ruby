@@ -16,6 +16,8 @@ project @project do |project|
 			text roq.option.text
 			next_question roq.next.name
 			value roq.value
+			min_range roq.min_range
+			max_range roq.max_range
 		end
 	end
 end
