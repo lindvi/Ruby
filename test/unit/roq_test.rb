@@ -16,5 +16,7 @@ end
 #  updated_at  :datetime        not null
 #  next_id     :integer
 #  value       :integer
+#  min_range   :integer
+#  max_range   :integer
 #
 

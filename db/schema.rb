@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115093646) do
+ActiveRecord::Schema.define(:version => 20121115095415) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20121115093646) do
     t.datetime "updated_at",  :null => false
     t.integer  "next_id"
     t.integer  "value"
+    t.integer  "min_range"
+    t.integer  "max_range"
   end
 
   create_table "Users", :force => true do |t|

@@ -48,6 +48,12 @@
 			    <%= f.label :next_id %>
 			    <%= f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false %>
  
+ 				<%= f.label :min_range %>
+			    <%= f.number_field :min_range %>
+			    
+			    <%= f.label :max_range %>
+			    <%= f.number_field :max_range %>
+			    
 			    <!-- <%= f.number_field :next_id %> -->
 
 			    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
