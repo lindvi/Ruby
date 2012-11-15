@@ -2,18 +2,16 @@ project @project do |project|
 	name project.name
 	version project.version
 	start project.start_question_name
-	schedule_next_model  project.schedule_next_model
-	schedule_next_model_name project.schedule_next_model_name
-	schedule_next_model_offset project.schedule_next_model_offset
 	question project.questions do |question|
 		id question.id
 		name question.name
 		content question.content
-		audio question.audio_url
 		picture question.picture_url
 		answer_type question.answer_type
 		set_reminder question.set_reminder
 		next_model question.next_model
+		schedule_next_model question.schedule_next_model
+		schedule_next_model_offset question.schedule_next_model_offset
 		option question.roqs do |roq|
 			text roq.option.text
 			next_question roq.next.name

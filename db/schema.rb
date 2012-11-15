@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112144824) do
+ActiveRecord::Schema.define(:version => 20121115093646) do
 
   create_table "Roqs", :force => true do |t|
     t.integer  "question_id"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20121112144824) do
     t.string   "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "min_range"
+    t.integer  "max_range"
   end
 
   create_table "pq_relations", :force => true do |t|
@@ -75,15 +77,17 @@ ActiveRecord::Schema.define(:version => 20121112144824) do
   end
 
   create_table "questions", :force => true do |t|
-    t.text     "name",         :limit => 255
+    t.text     "name",                       :limit => 255
     t.text     "content"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-    t.string   "answer_type",                 :default => ""
-    t.string   "audio_url",                   :default => ""
-    t.string   "picture_url",                 :default => ""
-    t.boolean  "set_reminder",                :default => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
+    t.string   "answer_type",                               :default => ""
+    t.string   "audio_url",                                 :default => ""
+    t.string   "picture_url",                               :default => ""
+    t.boolean  "set_reminder",                              :default => false
     t.text     "next_model"
+    t.string   "schedule_next_model",                       :default => ""
+    t.integer  "schedule_next_model_offset"
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true

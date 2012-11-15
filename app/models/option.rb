@@ -15,5 +15,7 @@ end
 #  text       :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  min_range  :integer
+#  max_range  :integer
 #
 
