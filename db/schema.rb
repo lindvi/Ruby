@@ -11,18 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115095415) do
-
-  create_table "Roqs", :force => true do |t|
-    t.integer  "question_id"
-    t.integer  "option_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "next_id"
-    t.integer  "value"
-    t.integer  "min_range"
-    t.integer  "max_range"
-  end
+ActiveRecord::Schema.define(:version => 20121119150134) do
 
   create_table "Users", :force => true do |t|
     t.string   "name"
@@ -89,10 +78,21 @@ ActiveRecord::Schema.define(:version => 20121115095415) do
     t.boolean  "set_reminder",                              :default => false
     t.text     "next_model"
     t.string   "schedule_next_model",                       :default => ""
-    t.integer  "schedule_next_model_offset"
+    t.string   "schedule_next_model_offset",                :default => ""
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true
+
+  create_table "roqs", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "option_id"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "next_id"
+    t.integer  "value"
+    t.string   "min_range",   :default => ""
+    t.string   "max_range",   :default => ""
+  end
 
   create_table "rpqs", :force => true do |t|
     t.integer  "project_id"
