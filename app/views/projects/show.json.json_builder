@@ -8,7 +8,6 @@ project @project do |project|
 		content question.content
 		picture question.picture_url
 		answer_type question.answer_type
-		set_reminder question.set_reminder
 		next_model question.next_model
 		schedule_next_model question.schedule_next_model
 		schedule_next_model_offset question.schedule_next_model_offset
