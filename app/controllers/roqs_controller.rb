@@ -12,7 +12,7 @@ class RoqsController < ApplicationController
 	def edit
 		@roq = Roq.find(params[:id])
 		@options = Option.all
-		@questions = Question.all
+		@questions = @roq.question.projects.first.questions
 	end
 
 	def update
