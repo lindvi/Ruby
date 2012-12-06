@@ -22,10 +22,11 @@
 				</td>
 				<td><%= roq.value %></td>
 				<td>
+					<%= link_to "Edit text", edit_option_path(roq.option), class: "btn btn-small btn-warning" %>
 					<% if roq.next.nil? %>
-						<%= link_to "Add", edit_roq_path(roq), class:"btn btn-small btn-success" %>
+						<%= link_to "Add relation", edit_roq_path(roq), class:"btn btn-small btn-success" %>
 					<% else %>
-						<%= link_to "Edit", edit_roq_path(roq), class:"btn btn-small btn-warning" %>
+						<%= link_to "Edit relation", edit_roq_path(roq), class:"btn btn-small btn-warning" %>
 					<% end %>
 					<%= link_to "Destroy", roq_path(roq), method: :delete, data: { confirm: "You sure?" },  class:"btn btn-small btn-danger" %>
 				</td>

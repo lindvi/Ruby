@@ -22,12 +22,13 @@ class OptionsController < ApplicationController
 		@option = Option.find(params[:id])
 		if @option.update_attributes(params[:option])
 			flash[:success] = "Option updated Successfully"
-			redirect_to option_path
 		else
 			flash[:failure] = "Failed to update option"
-			redirect_to option_path
 		end
+			@g = Roq.find_by_option_id(@option.id)
+			@q = Question.find(@g.question_id)
 
+			redirect_to @q
 	end
 
 	def create
