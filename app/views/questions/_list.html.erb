@@ -6,6 +6,8 @@
 				<th>Text</th>
 				<th>Next</th>
 				<th>Value</th>
+				<th>Min. range</th>
+				<th>Max. range</th>
 				<th>Controllers</th>
 			</tr>
 		</thead>
@@ -21,6 +23,8 @@
 					<% end %>
 				</td>
 				<td><%= roq.value %></td>
+				<td><%= roq.min_range %></td>
+				<td><%= roq.max_range %></td>
 				<td>
 					<%= link_to "Edit text", edit_option_path(roq.option), class: "btn btn-small btn-warning" %>
 					<% if roq.next.nil? %>
