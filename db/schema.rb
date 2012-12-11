@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119150134) do
+ActiveRecord::Schema.define(:version => 20121211135212) do
 
   create_table "Users", :force => true do |t|
     t.string   "name"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20121119150134) do
     t.text     "next_model"
     t.string   "schedule_next_model",                       :default => ""
     t.string   "schedule_next_model_offset",                :default => ""
+    t.integer  "min",                                       :default => 0
+    t.integer  "max",                                       :default => 0
   end
 
   add_index "questions", ["name"], :name => "index_questions_on_name", :unique => true
