@@ -7,6 +7,8 @@ project @project do |project|
 		name question.name
 		content question.content
 		picture question.picture_url
+		min question.min
+		max question.max
 		answer_type question.answer_type
 		next_model question.next_model
 		schedule_next_model question.schedule_next_model
