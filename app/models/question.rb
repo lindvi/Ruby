@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
 
-  attr_accessible :id, :content, :name, :answer_type, :picture_url, :audio_url, :set_reminder, :next_model, :schedule_next_model, :schedule_next_model_offset
+  attr_accessible :id, :content, :name, :answer_type, :picture_url, :audio_url, :set_reminder, :next_model, :schedule_next_model, :schedule_next_model_offset, :min, :max
 
 
   has_many :rqps, foreign_key: "question_id", class_name: "Rpq", dependent: :destroy
