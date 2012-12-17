@@ -17,15 +17,30 @@
 <br>
 <section class="well">
 <p>Information:</p>
-<ul>
-	<li><b>Id:</b> <%= @project.id %></li>
-	<li><b>Created:</b> <%= @project.created_at %></li>
-	<li><b>Version:</b> <%= @project.version %></li>
-	<li><b>Start question:</b><%= @project.start_question %></li>
-	<li><b>Name of question:</b><%= @project.start_question_name %></li>
-	<li><b>Number of questions:</b> <%= @project.questions.count %></li>
-</ul>
+<dl class="dl-horizontal">
+  <dt>ID</dt>
+  <dd><%= @project.id %></dd>
+  <dt>Active</dt>
+  <dd>
+		<% if @project.active %>
+			<span class="label label-success">Yes</span>
+		<% else %>
+			<span class="label label-important">No</span>
+		<% end %>
+  </dd>
+  <dt>Created at</dt>
+  <dd><%= @project.created_at %></dd>
+  <dt>Updated at</dt>
+  <dd><%= @project.updated_at %></dd>
+  <dt>Version</dt>
+  <dd><%= @project.version %></dd>
+  <dt>Start question</dt>
+  <dd><%= @project.start_question %></dd>
+  <dt>Name of question</dt>
+  <dd><%= @project.start_question_name %></dd>
+  <dt>Number of questions</dt>
+  <dd><%= @project.questions.count %></dd>
+</dl>
 </section>
-<%= render 'list' %>
-<br>
 <%= link_to "Add question", new_question_path(project_id: @project.id), class: "btn btn-large btn-primary" %>
+<%= render 'list' %>

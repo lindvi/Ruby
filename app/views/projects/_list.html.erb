@@ -3,9 +3,14 @@
 	<table class="table table-condensed">
 		<thead>
 			<tr>
-				<th>#</th>
+				<th>ID</th>
 				<th>Name</th>
 				<th>Content</th>
+				<th>Type</th>
+				<th>Min / Max</th>
+				<th>Picture</th>
+				<th>Audio</th>
+				<th>Next model</th>
 				<th>Controllers</th>
 			</tr>
 		</thead>
@@ -15,6 +20,23 @@
 				<td><%= rpq.question.id %></td>
 				<td><%= rpq.question.name %></td>
 				<td><%= rpq.question.content ||= "Not set" %></td>
+				<td><%= rpq.question.answer_type %></td>
+				<td><%= rpq.question.min.to_s + " / " + rpq.question.max.to_s %></td>
+				<td>
+					<% if !rpq.question.picture_url.empty? %>
+						<i class="icon-ok"></i>
+					<% else %>
+						<i class="icon-remove"></i>
+					<% end %>
+				</td>
+				<td>
+					<% if !rpq.question.audio_url.empty? %>
+						<i class="icon-ok"></i>
+					<% else %>
+						<i class="icon-remove"></i>
+					<% end %>
+				</td>
+				<td><%= rpq.question.next_model %></td>
 				<td>
 					<%= link_to "Show", question_path(rpq.question_id), class:"btn btn-small btn-info" %>
 					<%= link_to "Destroy", rpq_path(rpq), method: :delete, data: { confirm: "You sure?" },  class:"btn btn-small btn-danger" %>

@@ -1,14 +1,15 @@
 <div class="page-header">
 	<h1 class="hleft">Edit option</h1>
 </div>
-<%= link_to "Back", option_path, class:"btn btn-small btn-secondary" %><br><br>
+<%= link_to "Back", @option.reverse_roqs.first.question , class:"btn btn-small btn-secondary" %><br><br>
 <section class="well">
-	<ul>
-		<li><b>Text:</b><br> <%= @option.text %></li>
-	</ul>
+	<dl class="dl-horizontal">
+		<dt>Text</dt>
+		<dd><%= @option.text %></dd>
+	</dl>
 </section>
 <%= form_for(@option) do |f| %>
 	    <%= f.label :text %>
-	    <%= f.text_field :text %>
+	    <%= f.text_field :text, style: "height:40px" %>
 	    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
 <% end %>

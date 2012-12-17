@@ -2,57 +2,40 @@
 <h2><%= @roq.question.name %></h2>
 <%= link_to "Back", question_path(@roq.question.id), class:"btn btn-small btn-secondary" %> <br><br>
 <section class="well">
-<ul>
-	<li>
-		<b>Option to</b>
-		<br>
-		<%= @roq.question.name %>
-	</li>
-	<br>
-	<li>
-		<b>Text</b>
-		<br>
-		<%= @roq.option.text %>
-	</li>
-	<li>
-		<b>Value</b>
-		<br>
-		<%= @roq.value %>
-	</li>
-	<br>
-	<li>
-		<b>Leads to</b>
-		<br>
-		<% if !@roq.next.nil? %>
-			<%= @roq.next.name %>
-		<% else %>
-			Not set
-		<% end %>
-
-	</li>
-</ul>
+<dl class="dl-horizontal">
+	<dt>Option for question</dt>
+	<dd><%= @roq.question.name %></dd>
+	<dt>Text</dt>
+	<dd><%= @roq.option.text %></dd>
+	<dt>Value</dt>
+	<dd><%= @roq.value ||= "-" %></dd>
+	<dt>Min range / Max range</dt>
+	<dd><%= (@roq.min_range ||= "-") + " / " + (@roq.max_range ||= "-") %></dd>
+	<dt>Leads to</dt>
+	<dd><%= @roq.next.name ||= "Not set" %></dd>
+</dl>
 </section>
 <div class="row">
 	<div class="span6">
 		<%= form_for(@roq) do |f| %>
 
 			    <%= f.label :question_id %>
-			    <%= f.number_field :question_id %>
+			    <%= f.number_field :question_id, style: "height:40px" %>
 
 			    <%= f.label :option_id %>
-			    <%= f.number_field :option_id %>
+			    <%= f.number_field :option_id, style: "height:40px" %>
 
 			    <%= f.label :value %>
-			    <%= f.number_field :value %>
+			    <%= f.number_field :value, style: "height:40px" %>
 			    
 			    <%= f.label :next_id %>
-			    <%= f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false %>
+			    <%= f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false, style: "height:40px" %>
  
  				<%= f.label :min_range %>
-			    <%= f.number_field :min_range %>
+			    <%= f.number_field :min_range, style: "height:40px" %>
 			    
 			    <%= f.label :max_range %>
-			    <%= f.number_field :max_range %>
+			    <%= f.number_field :max_range, style: "height:40px" %>
 			    
 			    <!-- <%= f.number_field :next_id %> -->
 

@@ -1,35 +1,40 @@
 <h1>Question</h1>
 	<div class="btn-group">
-		<%= link_to "Back", questions_path, class:"btn btn-secondary" %>
+		<%= link_to "Back", @question.projects.first, class:"btn btn-secondary" %>
 		<%= link_to "Edit", edit_question_path, class:"btn btn-secondary" %>
 	</div>
 <br>
 <section class="well">
-	<ul>
-		<li><b>Name</b><br><%= @question.name %></li><br>
-		<li><b>Content</b><br><%= @question.content %></li><br>
-		<li><b>Type of answer</b><br><%= @question.answer_type %></li><br>
-		<li><b>Picture</b><br><%= @question.picture_url %></li>
-		<% if (!@question.picture_url.empty? && @question.picture_url.include?(".png")) %>
-			<% image_tag(@question.picture_url) %>
+	<dl class="dl-horizontal">
+		<dt>Name</dt>
+		<dd><%= @question.name %></dd>
+		<dt>Content</dt>
+		<dd><%= @question.content %></dd>
+		<dt>Type of answer</dt>
+		<dd><%= @question.answer_type %></dd>
+		<% if !@question.picture_url.empty? %>
+			<dt>Picture</dt>
+			<dd><%= @question.picture_url %></dd>
+		<% end %>
+		<% if !@question.audio_url.empty? %>
+			<dt>Picture</dt>
+			<dd><%= @question.audio_url %></dd>
+		<% end %>
+		<dt>Min / Max</dt>
+		<dd><%= @question.min.to_s + " / " + @question.max.to_s %></dd>
+		<dt>Reminder</dt>
+		<dd>
+		<% if @question.set_reminder %>
+			<span class="label label-success">Yes</span>
 		<% else %>
-			<span class="label label-important">Invalid picture url</span>
+			<span class="label"> No </span>
 		<% end %>
-		<br><br>
-		<li><b>Audio</b><br><%= @question.audio_url %></li>
-		<% if !(!@question.audio_url.empty? && @question.audio_url.include?(".")) %>
-			<span class="label label-important">Invalid audio url</span>
-		<% end %>
-		<br><br>
-		<li><b>Reminder</b><br></li><%= @question.set_reminder ||= "Not set"%></li><br><br>
-		<li><b>Used in</b><br/>
-			<% @question.projects.each do |project| %>
-				<%= link_to project.name, project %><br/>
-			<% end %>
-		</li>
-	</ul>
+		</dd>
+		<dt>Part of project</dt>
+		<dd><%= link_to @question.projects.first.name, @question.projects.first %></dd>
+	</dl>
+	
 </section>
+<%= link_to "Add option", new_option_path(question_id: @question.id), class: "btn btn-large btn-primary" %>
 
 <%= render 'list' %>
-<br>
-<%= link_to "Add option", new_option_path(question_id: @question.id), class: "btn btn-large btn-primary" %>
