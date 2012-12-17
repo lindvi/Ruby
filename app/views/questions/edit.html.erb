@@ -4,15 +4,34 @@
 <h2 class="hleft"><%= @question.name %></h2><br><br>
 <%= link_to "Back", question_path, class:"btn btn-small btn-secondary" %><br><br>
 <section class="well">
-	<ul>
-		<li><b>Id:</b> <%= @question.id %></li>
-		<li><b>Name:</b> <%= @question.name %></li>
-		<li><b>Content:</b> <%= @question.content %></li>
-		<li><b>Answer type:</b> <%= @question.answer_type %></li>
-		<li><b>Audio:</b> <%= @question.audio_url ||= "Not set" %></li>
-		<li><b>Picture:</b> <%= @question.picture_url ||= "Not set" %></li>
-		<li><b>Reminder</b> <%= @question.set_reminder %></li>
-	</ul>
+	<dl class="dl-horizontal">
+		<dt>Name</dt>
+		<dd><%= @question.name %></dd>
+		<dt>Content</dt>
+		<dd><%= @question.content %></dd>
+		<dt>Type of answer</dt>
+		<dd><%= @question.answer_type %></dd>
+		<% if !@question.picture_url.empty? %>
+			<dt>Picture</dt>
+			<dd><%= @question.picture_url %></dd>
+		<% end %>
+		<% if !@question.audio_url.empty? %>
+			<dt>Picture</dt>
+			<dd><%= @question.audio_url %></dd>
+		<% end %>
+		<dt>Min / Max</dt>
+		<dd><%= @question.min.to_s + " / " + @question.max.to_s %></dd>
+		<dt>Reminder</dt>
+		<dd>
+		<% if @question.set_reminder %>
+			<span class="label label-success">Yes</span>
+		<% else %>
+			<span class="label"> No </span>
+		<% end %>
+		</dd>
+		<dt>Part of project</dt>
+		<dd><%= link_to @question.projects.first.name, @question.projects.first %></dd>
+	</dl>
 </section>
 <%= form_for(@question) do |f| %>
 		<%= f.label :id %>
