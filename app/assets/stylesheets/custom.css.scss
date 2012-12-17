@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 /* mixins, variables, etc. */
-
+$blue: #eaeaea;
 $gray: #eaeaea;
 $grayLight: #eaeaea;
 $grayLighter: #eaeaea;
@@ -16,6 +16,7 @@ $lightRed: #deacac;
 }
 
 /* universal */
+
 
 html {
   overflow-y: scroll;
