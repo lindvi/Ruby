@@ -16,28 +16,28 @@
 </section>
 <%= form_for(@question) do |f| %>
 		<%= f.label :id %>
-		<%= f.number_field :id %>
+		<%= f.number_field :id, style: "height:40px"  %>
 
 	    <%= f.label :name %>
-	    <%= f.text_field :name %>
+	    <%= f.text_field :name, style: "height:40px"  %>
 
 	    <%= f.label :content %>
-      	<%= f.text_area :content %>
+      	<%= f.text_area :content, style: "height:40px"  %>
 	
 		<%= f.label :answer_type %><br />
-		<%= f.text_field :answer_type %>
+		<%= f.text_field :answer_type, style: "height:40px"  %>
 	
 	    <%= f.label :audio_url %>
-	    <%= f.text_field :audio_url %>
+	    <%= f.text_field :audio_url, style: "height:40px"  %>
 
 	    <%= f.label :picture_url %>
-	    <%= f.text_field :picture_url %>
+	    <%= f.text_field :picture_url, style: "height:40px"  %>
 
 		<%= f.label :min %>
-		<%= f.number_field :min %>
+		<%= f.number_field :min, style: "height:40px"  %>
 
 		<%= f.label :max %>
-		<%= f.number_field :max %>
+		<%= f.number_field :max, style: "height:40px"  %>
 
 		<%= f.label "Set reminder" %>
       	<%= f.radio_button :set_reminder, :true %>
@@ -47,13 +47,13 @@
       	<br><br>
 	
 	    <%= f.label :next_model %><br />
-	    <%= f.text_field :next_model %>
+	    <%= f.text_field :next_model, style: "height:40px"  %>
 	
 	    <%= f.label :schedule_next_model %><br />
-	    <%= f.text_field :schedule_next_model %>
+	    <%= f.text_field :schedule_next_model, style: "height:40px"  %>
 
 	    <%= f.label :schedule_next_model_offset %><br />
-	    <%= f.number_field :schedule_next_model_offset %>
+	    <%= f.number_field :schedule_next_model_offset, style: "height:40px"  %>
 
 	    <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
 <% end %>
