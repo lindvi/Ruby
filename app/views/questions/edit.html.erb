@@ -25,7 +25,7 @@
       	<%= f.text_area :content, style: "height:250px"  %>
 	
 		<%= f.label :answer_type %><br />
-		<%= f.text_field :answer_type, style: "height:40px"  %>
+		<%= select(f, :answer_type, ['button','textinput','equation']) %>
 	
 	    <%= f.label :audio_url %>
 	    <%= f.text_field :audio_url, style: "height:40px"  %>
