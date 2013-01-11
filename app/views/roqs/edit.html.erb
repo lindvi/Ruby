@@ -12,7 +12,7 @@
 	<dt>Min range / Max range</dt>
 	<dd><%= (@roq.min_range ||= "-") + " / " + (@roq.max_range ||= "-") %></dd>
 	<dt>Leads to</dt>
-	<dd><%= @roq.next.name ||= "Not set" %></dd>
+	<dd><%= @roq.next.name rescue "Not set" %></dd>
 </dl>
 </section>
 <div class="row">
@@ -29,11 +29,8 @@
 			    <%= f.number_field :value, style: "height:40px" %>
 			    
 			    <%= f.label :next_id %>
-			    <% if @roq.next.nil? %>
-			    	<%= f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false, style: "height:40px" %>
-			    <% else %>
+			    	<% f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false, style: "height:40px" %>
 				    <%= f.collection_select :next_id, @questions, :id, :name, :prompt => true, style: "height:40px" %>
- 				<% end %>
 
  				<%= f.label :min_range %>
 			    <%= f.number_field :min_range, style: "height:40px" %>
