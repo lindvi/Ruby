@@ -29,9 +29,12 @@
 			    <%= f.number_field :value, style: "height:40px" %>
 			    
 			    <%= f.label :next_id %>
-			    <%= f.collection_select :next_id, @questions, :id, :name, :prompt => true, style: "height:40px" %>
-			    <% f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false, style: "height:40px" %>
- 
+			    <% if @roq.next.nil? %>
+			    	<%= f.select :next_id, options_from_collection_for_select(@questions, :id, :name), :include_blank => false, style: "height:40px" %>
+			    <% else %>
+				    <%= f.collection_select :next_id, @questions, :id, :name, :prompt => true, style: "height:40px" %>
+ 				<% end %>
+
  				<%= f.label :min_range %>
 			    <%= f.number_field :min_range, style: "height:40px" %>
 			    
