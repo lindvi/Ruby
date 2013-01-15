@@ -9,7 +9,7 @@
 		<dt>Name</dt>
 		<dd><%= @question.name %></dd>
 		<dt>Content</dt>
-		<dd><%= @question.content %></dd>
+		<dd><%= @question.content ||= "Nil"%></dd>
 		<dt>Type of answer</dt>
 		<dd><%= @question.answer_type %></dd>
 		<% if !@question.picture_url.empty? %>
@@ -32,6 +32,12 @@
 		</dd>
 		<dt>Part of project</dt>
 		<dd><%= link_to @question.projects.first.name, @question.projects.first %></dd>
+		<dt>Scheduled next model</dt>
+		<dd><%= @question.scheduled_next_model %></dd>
+		<dt>Scheduled next model offset</dt>
+		<dd><%= @question.scheduled_next_model_offset %></dd>
+		<dt>Scheduled next model</dt>
+		<dd><%= @question.scheduled_next_model %></dd>
 	</dl>
 	
 </section>
