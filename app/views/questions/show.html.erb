@@ -31,7 +31,11 @@
 		<% end %>
 		</dd>
 		<dt>Part of project</dt>
-		<dd><%= link_to @question.projects.first.name rescue "Not assigned", @question.projects.first rescue "#" %></dd>
+		<% if @question.project.nil? %>
+			<dd></dd>
+		<% else %>
+			<dd><%= link_to @question.projects.first.name, @question.projects.first %></dd>
+		<% end %>
 		<dt>Scheduled next model</dt>
 		<dd><%= @question.schedule_next_model %></dd>
 		<dt>Scheduled next model offset</dt>
