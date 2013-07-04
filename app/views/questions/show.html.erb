@@ -31,7 +31,7 @@
 		<% end %>
 		</dd>
 		<dt>Part of project</dt>
-		<% if @question.projects.nil? %>
+		<% if @question.projects.empty? %>
 			<dd></dd>
 		<% else %>
 			<dd><%= link_to @question.projects.first.name, @question.projects.first %></dd>
