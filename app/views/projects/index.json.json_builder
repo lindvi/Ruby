@@ -1,0 +1,6 @@
+project @projects do |project|
+	id project.id
+	name project.name
+	version project.version
+	start project.start_question_name
+end

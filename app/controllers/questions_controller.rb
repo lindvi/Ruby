@@ -39,7 +39,17 @@ class QuestionsController < ApplicationController
 	def update
 		@question = Question.find(params[:id])
 		if @question.update_attributes(params[:question])
-			flash[:success] = "Question updated Successfully"
+			if @question.name.start_with?"NS_"
+				@reversed_question = Question.where("name = ?", @question.name[3..@question.name.length-1])
+			else
+				@reversed_question = Question.where("name = ?", "NS_" + @question.name)
+			end
+
+
+			@reversed_question.content = @question.content
+			@reversed_question.save
+
+			flash[:success] = "Question and related question updated successfully"
 			redirect_to question_path
 		else
 			flash[:failure] = "Failed to update question"
