@@ -13,6 +13,7 @@ gem 'json_builder'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development do
 	gem 'sqlite3'
+	gem 'better_errors'
 end
 
 group :production, :test do
