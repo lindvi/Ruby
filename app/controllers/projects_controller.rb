@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 	def show
 		#@project = Project.find(params[:id])
 		if params[:id].to_i == 0
-			@project = Project.find_by_name(params[:id])
+			@project = Project.where("name = ?", (params[:id]))
 		else
 			@project = Project.find(params[:id])
 		end
