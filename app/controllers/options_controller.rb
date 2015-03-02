@@ -25,7 +25,7 @@ class OptionsController < ApplicationController
 		else
 			flash[:failure] = "Failed to update option"
 		end
-			@g = Roq.find_by_option_id(@option.id)
+			@g = Roq.where("option_id = ?", @option.id)
 			@q = Question.find(@g.question_id)
 
 			redirect_to @q

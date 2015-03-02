@@ -13,22 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121211135212) do
 
-  create_table "Users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.boolean  "admin",           :default => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "username"
-    t.string   "password_digest"
-    t.string   "remember_token"
-  end
-
-  add_index "Users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "Users", ["remember_token"], :name => "index_users_on_remember_token"
-  add_index "Users", ["username"], :name => "index_users_on_username", :unique => true
-
   create_table "answers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
@@ -45,13 +29,6 @@ ActiveRecord::Schema.define(:version => 20121211135212) do
     t.datetime "updated_at", :null => false
     t.integer  "min_range"
     t.integer  "max_range"
-  end
-
-  create_table "pq_relations", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "question_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -76,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20121211135212) do
     t.string   "audio_url",                                 :default => ""
     t.string   "picture_url",                               :default => ""
     t.boolean  "set_reminder",                              :default => false
-    t.text     "next_model"
+    t.string   "next_model"
     t.string   "schedule_next_model",                       :default => ""
     t.string   "schedule_next_model_offset",                :default => ""
     t.integer  "min",                                       :default => 0
@@ -98,11 +75,27 @@ ActiveRecord::Schema.define(:version => 20121211135212) do
 
   create_table "rpqs", :force => true do |t|
     t.integer  "project_id"
-    t.string   "question_id"
+    t.integer  "question_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   add_index "rpqs", ["project_id", "question_id"], :name => "index_rpqs_on_project_id_and_question_id", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.boolean  "admin",           :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

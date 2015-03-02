@@ -45,9 +45,10 @@ class QuestionsController < ApplicationController
 				@reversed_question = Question.where("name = ?", "NS_" + @question.name)
 			end
 
-
-			@reversed_question.content = @question.content
-			@reversed_question.save
+			if !@reversed_question.empty?
+				@reversed_question.content = @question.content
+				@reversed_question.save
+			end
 
 			flash[:success] = "Question and related question updated successfully"
 			redirect_to question_path
